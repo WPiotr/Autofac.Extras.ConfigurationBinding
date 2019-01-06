@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C1F59835-17FB-4CE1-B062-FB708F723010}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{702E923F-4A0C-4732-915C-A5E2E703F806}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autofac.Extras.ConfigurationBinding", "src\Autofac.Extras.ConfigurationBinding\Autofac.Extras.ConfigurationBinding.csproj", "{8B893D9D-2861-4C68-AB2D-5E10A6662014}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autofac.Extras.ConfigurationBinding.Tests", "tests\Autofac.Extras.ConfigurationBinding.Tests\Autofac.Extras.ConfigurationBinding.Tests.csproj", "{5855853C-FE99-4384-8EBB-200B8CD81262}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B893D9D-2861-4C68-AB2D-5E10A6662014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B893D9D-2861-4C68-AB2D-5E10A6662014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B893D9D-2861-4C68-AB2D-5E10A6662014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B893D9D-2861-4C68-AB2D-5E10A6662014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5855853C-FE99-4384-8EBB-200B8CD81262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5855853C-FE99-4384-8EBB-200B8CD81262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5855853C-FE99-4384-8EBB-200B8CD81262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5855853C-FE99-4384-8EBB-200B8CD81262}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8B893D9D-2861-4C68-AB2D-5E10A6662014} = {C1F59835-17FB-4CE1-B062-FB708F723010}
+		{5855853C-FE99-4384-8EBB-200B8CD81262} = {702E923F-4A0C-4732-915C-A5E2E703F806}
+	EndGlobalSection
+EndGlobal
