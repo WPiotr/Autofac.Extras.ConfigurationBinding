@@ -37,8 +37,22 @@
       <HintPath>..\..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoFixture, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f">
+      <HintPath>..\..\packages\AutoFixture.4.6.0\lib\net452\AutoFixture.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoFixture.Xunit2, Version=4.6.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f">
+      <HintPath>..\..\packages\AutoFixture.Xunit2.4.6.0\lib\net452\AutoFixture.Xunit2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fare, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ea68d375bf33a7c8">
+      <HintPath>..\..\packages\Fare.2.1.1\lib\net35\Fare.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
