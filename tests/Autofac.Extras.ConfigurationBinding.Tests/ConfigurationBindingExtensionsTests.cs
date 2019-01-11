@@ -22,8 +22,18 @@ namespace Autofac.Extras.ConfigurationBinding.Tests
             containerBuilder.RegisterConfiguration<ITestConfiguration>();
             var container = containerBuilder.Build();
             var testConfig = container.Resolve<ITestConfiguration>();
-            var a = testConfig.StringSetting;
-            Assert.Equal(stringFixture, testConfig.StringSetting);
+            
+            var stringSetting = testConfig.StringSetting;
+            var intSetting = testConfig.IntSetting;
+            var longSetting = testConfig.LongSetting;
+            var decimalSetting = testConfig.DecimalSetting;
+            var boolSetting = testConfig.BoolSetting;
+            
+            Assert.Equal(boolFixture, boolSetting);
+            Assert.Equal(stringFixture, stringSetting);
+            Assert.Equal(decimalFixture, decimalSetting);
+            Assert.Equal(intFixture, intSetting);
+            Assert.Equal(longFixture, longSetting);
         }
 
         private static void PrepareConfiguration(
@@ -34,14 +44,13 @@ namespace Autofac.Extras.ConfigurationBinding.Tests
             decimal decimalFixture)
         {
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings.Add("BoolSetting", boolFixture.ToString());
-            config.AppSettings.Settings.Add("StringSetting", stringFixture);
-            config.AppSettings.Settings.Add("IntSetting", intFixture.ToString());
-            config.AppSettings.Settings.Add("LongSetting", longFixture.ToString());
-            config.AppSettings.Settings.Add("DecimalSetting",
-                decimalFixture.ToString(CultureInfo.InvariantCulture));
+            config.AppSettings.Settings["BoolSetting"].Value = boolFixture.ToString();
+            config.AppSettings.Settings["StringSetting"].Value = stringFixture;
+            config.AppSettings.Settings["IntSetting"].Value = intFixture.ToString();
+            config.AppSettings.Settings["LongSetting"].Value = longFixture.ToString();
+            config.AppSettings.Settings["DecimalSetting"].Value = decimalFixture.ToString(CultureInfo.InvariantCulture);
             config.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(config.AppSettings.SectionInformation.Name);
+            ConfigurationManager.RefreshSection("appSettings");
         }
     }
 }
