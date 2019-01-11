@@ -41,7 +41,7 @@ namespace Autofac.Extras.ConfigurationBinding
                 var getterIl = getterBuilder.GetILGenerator();
                 getterIl.Emit(OpCodes.Ldstr, propertyName);
                 getterIl
-                    .Emit(OpCodes.Call, typeof(ConfigurationBindingExtensions).GetMethod("ExtractConfig"));
+                    .Emit(OpCodes.Call, typeof(ConfigurationHelper).GetMethod("ExtractConfig").MakeGenericMethod(propertyType));
                 getterIl.Emit(OpCodes.Ret);
             }
 
@@ -52,6 +52,5 @@ namespace Autofac.Extras.ConfigurationBinding
             return builder;
         }
 
-        public static object ExtractConfig(string key) => ConfigurationManager.AppSettings[key];
     }
 }
