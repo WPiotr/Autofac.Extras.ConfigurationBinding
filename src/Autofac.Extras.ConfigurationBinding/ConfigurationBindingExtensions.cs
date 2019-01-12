@@ -2,12 +2,13 @@ using System;
 using System.Configuration;
 using System.Reflection;
 using System.Reflection.Emit;
+using Autofac.Builder;
 
 namespace Autofac.Extras.ConfigurationBinding
 {
     public static class ConfigurationBindingExtensions
     {
-        public static ContainerBuilder RegisterConfiguration<T>(this ContainerBuilder builder)
+        public static IRegistrationBuilder<object, SimpleActivatorData, SingleRegistrationStyle> RegisterConfiguration<T>(this ContainerBuilder builder)
             where T : class
         {
             var interfaceType = typeof(T);
@@ -48,8 +49,7 @@ namespace Autofac.Extras.ConfigurationBinding
             var proxyType = typeBuilder.CreateType();
             var proxyObject = Activator.CreateInstance(proxyType);
             ab.Save(aName.ToString());
-            builder.Register(context => proxyObject).As<T>();
-            return builder;
+            return builder.Register(context => proxyObject).As<T>();
         }
 
     }
