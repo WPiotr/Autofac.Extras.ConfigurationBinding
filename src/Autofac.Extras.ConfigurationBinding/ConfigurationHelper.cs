@@ -6,7 +6,7 @@ namespace Autofac.Extras.ConfigurationBinding
 {
     public class ConfigurationHelper
     {
-        public static object ExtractConfig<T>(string key)
+        public static T ExtractConfig<T>(string key)
         {
             var configValue = ConfigurationManager.AppSettings[key];
             var type = typeof(T);
@@ -36,7 +36,7 @@ namespace Autofac.Extras.ConfigurationBinding
                 resultValue = configValue;
             }
             
-            return (object)resultValue;
+            return (T)resultValue;
         }
     }
 }
