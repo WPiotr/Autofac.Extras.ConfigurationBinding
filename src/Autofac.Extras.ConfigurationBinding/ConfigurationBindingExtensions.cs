@@ -12,7 +12,7 @@ namespace Autofac.Extras.ConfigurationBinding
             where T : class
         {
             var interfaceType = typeof(T);
-            var aName = new AssemblyName("HelloReflectionEmit");
+            var aName = new AssemblyName("ConfigurationBindingExtensionsDynamic");
 
             var ab =
                 AppDomain.CurrentDomain.DefineDynamicAssembly(

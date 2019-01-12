@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace Autofac.Extras.ConfigurationBinding
 {
-    public class ConfigurationHelper
+    internal class ConfigurationHelper
     {
         public static T ExtractConfig<T>(string key)
         {
