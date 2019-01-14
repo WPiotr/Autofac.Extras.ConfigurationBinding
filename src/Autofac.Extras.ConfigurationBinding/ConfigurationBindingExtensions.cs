@@ -6,10 +6,9 @@ using Autofac.Builder;
 
 namespace Autofac.Extras.ConfigurationBinding
 {
-    public static class ConfigurationBindingExtensions
+    public static class ConfigurationBinder
     {
-        public static IRegistrationBuilder<object, SimpleActivatorData, SingleRegistrationStyle> RegisterConfiguration<T>(this ContainerBuilder builder)
-            where T : class
+        public static object CreateDynamicProxy<T>()
         {
             var interfaceType = typeof(T);
             var aName = new AssemblyName("ConfigurationBindingExtensionsDynamic");
@@ -19,10 +18,8 @@ namespace Autofac.Extras.ConfigurationBinding
                     aName,
                     AssemblyBuilderAccess.RunAndSave);
 
-            // For a single-module assembly, the module name is usually
-            // the assembly name plus an extension.
             var moduleBuilder =
-                ab.DefineDynamicModule(aName.Name, aName.Name + ".dll");
+                ab.DefineDynamicModule($"{aName.Name}Extension", aName.Name + ".dll");
 
             var typeBuilder = moduleBuilder.DefineType($"{interfaceType.Name}Proxy", TypeAttributes.Public);
             typeBuilder.AddInterfaceImplementation(interfaceType);
@@ -42,15 +39,15 @@ namespace Autofac.Extras.ConfigurationBinding
                 var getterIl = getterBuilder.GetILGenerator();
                 getterIl.Emit(OpCodes.Ldstr, propertyName);
                 getterIl
-                    .Emit(OpCodes.Call, typeof(ConfigurationHelper).GetMethod("ExtractConfig").MakeGenericMethod(propertyType));
+                    .Emit(OpCodes.Call,
+                        typeof(ConfigurationHelper).GetMethod("ExtractConfig").MakeGenericMethod(propertyType));
                 getterIl.Emit(OpCodes.Ret);
             }
 
             var proxyType = typeBuilder.CreateType();
             var proxyObject = Activator.CreateInstance(proxyType);
             ab.Save(aName.ToString());
-            return builder.Register(context => proxyObject).As<T>();
+            return proxyObject;
         }
-
     }
 }

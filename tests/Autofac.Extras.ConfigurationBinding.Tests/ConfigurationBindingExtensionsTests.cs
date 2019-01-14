@@ -21,7 +21,7 @@ namespace Autofac.Extras.ConfigurationBinding.Tests
         {
             PrepareConfiguration(boolFixture, stringFixture, intFixture, longFixture, decimalFixture);
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterConfiguration<ITestConfiguration>();
+            containerBuilder.RegisterConfiguration<ITestConfiguration>().InstancePerLifetimeScope();
             var container = containerBuilder.Build();
             var testConfig = container.Resolve<ITestConfiguration>();
 
