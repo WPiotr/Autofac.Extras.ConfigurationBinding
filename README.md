@@ -30,3 +30,14 @@ public class ExampleModule : Module
     }
 }
 ```
+
+Supported property types:
+- int
+- int?
+- long
+- long?
+- decimal
+- decimal?
+- bool
+- bool?
+- string
