@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<metadata>
+		<id>Autofac.Extras.ConfigurationBinding</id>
+		<version>1.0.0</version>
+		<authors>wpiotr</authors>
+		<owners>wpiotr</owners>
+		<projectUrl>https://github.com/WPiotr/Autofac.Extras.ConfigurationBinding</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Simple Extension to Autofac that register Interface and bind configuration values to properties.</description>
+		<summary>Configuration binder for Autofac</summary>
+		<license type="expression">MIT</license>
+		<tags>Autofac Configuration</tags>
+		<dependencies>
+			<dependency id="Autofac" version="4.8.1" />
+		</dependencies>
+	</metadata>
+	<files>
+		<file src=".\bin\Release\Autofac.Extras.ConfigurationBinding.dll" target="lib\net451\Autofac.Extras.ConfigurationBinding.dll" />
+	</files>
+</package>
